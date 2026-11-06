@@ -1,148 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Allan - Backend Programmer Resume</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #333;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Allan – Software Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1320; --surface:#151d2f; --line:#26324b;
+  --text:#e8edf7; --muted:#9aa8c4; --accent:#6ea8ff; --accent-ink:#0d1320;
+  --display:'Space Grotesk',system-ui,sans-serif;
+  --body:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.65 var(--body)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
 
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
+/* Hero */
+.hero{padding:96px 0 72px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+.hero h1{font:700 clamp(3rem,8vw,5.5rem)/1 var(--display);margin:0 0 12px;letter-spacing:-.03em}
+.hero .role{font:500 1.35rem var(--display);color:var(--accent);margin:0 0 20px}
+.hero p{color:var(--muted);max-width:46ch;margin:0 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:11px 22px;border-radius:999px;font:500 .95rem var(--body);text-decoration:none;border:1px solid var(--line);transition:background .2s,color .2s}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn:hover{background:var(--surface)}
+.btn.primary:hover{background:#9cc2ff}
 
-        h1,
-        h2,
-        h3 {
-            color: #90caf9;
-            margin-top: 30px;
-        }
+.term{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.term-bar{display:flex;gap:7px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.term-bar i{width:11px;height:11px;border-radius:50%;background:var(--line)}
+.term pre{margin:0;padding:20px;font:400 .88rem/1.7 var(--mono);overflow-x:auto;color:var(--text)}
+.k{color:var(--accent)} .s{color:#a8d8b9} .c{color:var(--muted)}
 
-        h2 {
-            border-bottom: 2px solid #90caf9;
-            padding-bottom: 5px;
-        }
+/* Sections */
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font:700 1.9rem var(--display);margin:0 0 28px;letter-spacing:-.01em}
+.about{max-width:64ch}
+.about p{margin:0 0 16px;color:var(--muted)}
+.about strong{color:var(--text);font-weight:500}
 
-        h3 {
-            margin-top: 20px;
-        }
+.edu{display:grid;gap:16px}
+.edu-item{display:grid;grid-template-columns:150px 1fr;gap:16px}
+.edu-item .when{color:var(--accent);font:500 .95rem var(--display)}
+.edu-item h3{margin:0;font:500 1.1rem var(--display)}
+.edu-item p{margin:2px 0 0;color:var(--muted);font-size:.95rem}
 
-        .badge {
-            background-color: #90caf9;
-        }
+.skills{display:grid;gap:22px}
+.skill-row{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:start}
+.skill-row h3{margin:6px 0 0;font:500 1rem var(--display);color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-size:.92rem}
+.chip.main{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:500}
 
-        .list-group-item {
-            background-color: #424242;
-            border-color: #424242;
-            border-radius: 20px;
-            color: #fff;
-        }
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.proj{display:block;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;transition:border-color .2s,transform .2s}
+.proj:hover{border-color:var(--accent);transform:translateY(-3px)}
+.proj h3{margin:0 0 8px;font:700 1.25rem var(--display)}
+.proj p{margin:0 0 16px;color:var(--muted);font-size:.95rem}
+.proj .chips .chip{font-size:.8rem;padding:3px 11px;background:transparent}
 
-        .list-group-item:hover {
-            background-color: #90caf9;
-            color: #fff;
-        }
+/* Quotes */
+.quotes{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:44px 40px}
+blockquote{margin:0;min-height:150px}
+blockquote p{font:500 clamp(1.5rem,3.6vw,2.3rem)/1.3 var(--display);margin:0 0 18px;letter-spacing:-.01em}
+blockquote footer{color:var(--accent);font:500 1rem var(--display)}
+.q-nav{display:flex;align-items:center;gap:14px;margin-top:24px}
+.q-nav button{background:transparent;color:var(--text);border:1px solid var(--line);border-radius:999px;padding:8px 18px;font:500 .9rem var(--body);cursor:pointer;transition:background .2s}
+.q-nav button:hover{background:var(--bg)}
+.q-count{margin-left:auto;color:var(--muted);font:400 .85rem var(--mono)}
 
-        .card {
-            background-color: #424242;
-            border: none;
-            border-radius: 20px;
-            margin-bottom: 20px;
-        }
+footer.page{padding:40px 0 64px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
 
-        .card-title {
-            color: #90caf9;
-        }
-
-        .card-text {
-            color: #ccc;
-        }
-
-        .badge-dark {
-            margin-right: 5px;
-        }
-    </style>
+@media(max-width:720px){
+  .hero{grid-template-columns:1fr;padding:64px 0 48px}
+  .edu-item,.skill-row{grid-template-columns:1fr;gap:4px}
+  .quotes{padding:30px 22px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
-
 <body>
-    <div class="container">
-        <header class="text-center">
-            <h1 class="mb-4">Allan</h1>
-            <h3 class="mb-4">Backend Programmer</h3>
-        </header>
+<main class="wrap">
 
-        <section>
-            <h2>About Me</h2>
-            <p>Backend programmer with a passion for crafting efficient and scalable web solutions. Proficient in PHP,
-                Python, and JavaScript, with expertise in modern web development technologies including HTML, CSS,
-                Bootstrap, and Firebase. Skilled in database management with MySQL and Redis. Currently exploring the
-                realms of React Native and React JS to build engaging mobile and web applications.</p>
-        </section>
-
-        <section>
-            <h2>Education</h2>
-            <p>Senai - Programming Logic</p>
-            <p>Senai - Information Technology</p>
-            <p>Coursera - HTML, CSS, and JavaScript</p>
-            <p>Coursera - JavaScript - jQuery and JSON</p>
-        </section>
-
-        <section>
-            <h2>Skills</h2>
-            <ul class="list-group">
-                <li class="list-group-item">PHP</li>
-                <li class="list-group-item">Python</li>
-                <li class="list-group-item">JavaScript</li>
-                <li class="list-group-item">HTML</li>
-                <li class="list-group-item">CSS</li>
-                <li class="list-group-item">Bootstrap</li>
-                <li class="list-group-item">Firebase</li>
-                <li class="list-group-item">MySQL</li>
-                <li class="list-group-item">Redis</li>
-                <li class="list-group-item">React Native (in progress)</li>
-                <li class="list-group-item">React JS (in progress)</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Projects</h2>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Chat</h5>
-                    <p class="card-text">A chat application built with PHP and JavaScript.</p>
-                    <a href="https://github.com/allanlealluz/Chat" class="badge badge-dark">PHP</a>
-                    <a href="https://github.com/allanlealluz/Chat" class="badge badge-dark">JavaScript</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Sombra of Condor</h5>
-                    <p class="card-text">A project built with Firebase, PHP, and Ratchet.</p>
-                    <a href="https://github.com/allanlealluz/Shadow_OF_Condor" class="badge badge-dark">Firebase</a>
-                    <a href="https://github.com/allanlealluz/Shadow_OF_Condor" class="badge badge-dark">PHP</a>
-                    <a href="https://github.com/allanlealluz/Shadow_OF_Condor" class="badge badge-dark">Ratchet</a>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Certifications</h2>
-            <p>Senai - Programming Logic</p>
-            <p>Senai - Information Technology</p>
-            <p>Coursera - HTML, CSS, and JavaScript</p>
-            <p>Coursera - JavaScript - jQuery and JSON</p>
-        </section>
+  <header class="hero">
+    <div>
+      <h1>Allan</h1>
+      <p class="role">Software Developer · Backend</p>
+      <p>I build efficient, scalable web solutions and juggle several projects at once. Right now I'm focused on Python and JavaScript.</p>
+      <div class="btns">
+        <a class="btn primary" href="https://github.com/allanlealluz">See my GitHub</a>
+        <a class="btn" href="#projects">View projects</a>
+      </div>
     </div>
-</body>
+    <div class="term" aria-hidden="true">
+      <div class="term-bar"><i></i><i></i><i></i></div>
+<pre><span class="k">class</span> Allan:
+    studying = <span class="s">"Fatec – Multiplatform Software Dev"</span>
+    focus    = [<span class="s">"Python"</span>, <span class="s">"JavaScript"</span>]
+    learning = [<span class="s">"React"</span>, <span class="s">"React Native"</span>]
+    projects = <span class="s">"many, in parallel"</span>
 
+    <span class="k">def</span> build(self):
+        <span class="k">return</span> <span class="s">"clean, scalable code"</span></pre>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About me</h2>
+    <div class="about">
+      <p>I'm a software developer studying <strong>Multiplatform Software Development at Fatec</strong>, with a strong backend background. I work on several projects at the same time, which keeps me practicing and shipping.</p>
+      <p>My current focus is <strong>Python and JavaScript</strong>, but I'm comfortable in other languages too, including PHP. I work with HTML, CSS, Bootstrap and Firebase, manage data with MySQL and Redis, and I'm now exploring React JS and React Native to build web and mobile apps.</p>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="edu">
+      <div class="edu-item">
+        <div class="when">In progress</div>
+        <div><h3>Multiplatform Software Development</h3><p>Fatec</p></div>
+      </div>
+      <div class="edu-item">
+        <div class="when">Courses</div>
+        <div><h3>Programming Logic</h3><p>Senai</p></div>
+      </div>
+      <div class="edu-item">
+        <div class="when">Courses</div>
+        <div><h3>Information Technology</h3><p>Senai</p></div>
+      </div>
+      <div class="edu-item">
+        <div class="when">Certificates</div>
+        <div><h3>HTML, CSS, and JavaScript</h3><p>Coursera</p></div>
+      </div>
+      <div class="edu-item">
+        <div class="when">Certificates</div>
+        <div><h3>JavaScript – jQuery and JSON</h3><p>Coursera</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill-row">
+        <h3>Current focus</h3>
+        <div class="chips"><span class="chip main">Python</span><span class="chip main">JavaScript</span></div>
+      </div>
+      <div class="skill-row">
+        <h3>Also familiar with</h3>
+        <div class="chips"><span class="chip">PHP</span><span class="chip">Other languages</span></div>
+      </div>
+      <div class="skill-row">
+        <h3>Web</h3>
+        <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Bootstrap</span><span class="chip">Firebase</span></div>
+      </div>
+      <div class="skill-row">
+        <h3>Databases</h3>
+        <div class="chips"><span class="chip">MySQL</span><span class="chip">Redis</span></div>
+      </div>
+      <div class="skill-row">
+        <h3>Learning</h3>
+        <div class="chips"><span class="chip">React JS</span><span class="chip">React Native</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <a class="proj" href="https://github.com/allanlealluz/Chat">
+        <h3>Chat</h3>
+        <p>A chat application built with PHP and JavaScript.</p>
+        <div class="chips"><span class="chip">PHP</span><span class="chip">JavaScript</span></div>
+      </a>
+      <a class="proj" href="https://github.com/allanlealluz/Shadow_OF_Condor">
+        <h3>Sombra of Condor</h3>
+        <p>A project built with Firebase, PHP, and Ratchet.</p>
+        <div class="chips"><span class="chip">Firebase</span><span class="chip">PHP</span><span class="chip">Ratchet</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section id="quotes">
+    <h2>Words I code by</h2>
+    <div class="quotes">
+      <blockquote aria-live="polite">
+        <p id="q-text"></p>
+        <footer id="q-author"></footer>
+      </blockquote>
+      <div class="q-nav">
+        <button id="prev" type="button">Previous</button>
+        <button id="next" type="button">Next quote</button>
+        <span class="q-count" id="q-count"></span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="page">© Allan – Software Developer</footer>
+</main>
+
+<script>
+const quotes = [
+  ["Talk is cheap. Show me the code.", "Linus Torvalds"],
+  ["Premature optimization is the root of all evil.", "Donald Knuth"],
+  ["Simplicity is prerequisite for reliability.", "Edsger W. Dijkstra"],
+  ["Make it work, make it right, make it fast.", "Kent Beck"],
+  ["The best way to predict the future is to invent it.", "Alan Kay"],
+  ["Debugging is twice as hard as writing the code in the first place.", "Brian Kernighan"],
+  ["The most dangerous phrase in the language is, “We’ve always done it this way.”", "Grace Hopper"]
+];
+let i = Math.floor(Math.random() * quotes.length);
+const t = document.getElementById('q-text'),
+      a = document.getElementById('q-author'),
+      c = document.getElementById('q-count');
+function show() {
+  t.textContent = '“' + quotes[i][0].replace(/^“|”$/g, '') + '”';
+  if (quotes[i][0].startsWith('“')) t.textContent = quotes[i][0];
+  a.textContent = quotes[i][1];
+  c.textContent = (i + 1) + ' / ' + quotes.length;
+}
+document.getElementById('next').onclick = () => { i = (i + 1) % quotes.length; show(); };
+document.getElementById('prev').onclick = () => { i = (i - 1 + quotes.length) % quotes.length; show(); };
+show();
+</script>
+</body>
 </html>
