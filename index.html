@@ -62,7 +62,10 @@ h2{font:700 1.9rem var(--display);margin:0 0 28px;letter-spacing:-.01em}
 .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
 .proj{display:block;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;transition:border-color .2s,transform .2s}
 .proj:hover{border-color:var(--accent);transform:translateY(-3px)}
+.proj.wide{grid-column:1/-1}
+.proj .tag{display:inline-block;margin:0 0 10px;color:var(--accent);font:500 .85rem var(--display)}
 .proj h3{margin:0 0 8px;font:700 1.25rem var(--display)}
+.proj .go{display:inline-block;margin-top:14px;color:var(--accent);font:500 .9rem var(--body)}
 .proj p{margin:0 0 16px;color:var(--muted);font-size:.95rem}
 .proj .chips .chip{font-size:.8rem;padding:3px 11px;background:transparent}
 
@@ -96,6 +99,7 @@ footer.page{padding:40px 0 64px;color:var(--muted);font-size:.9rem;border-top:1p
       <p>I build efficient, scalable web solutions and juggle several projects at once. Right now I'm focused on Python and JavaScript.</p>
       <div class="btns">
         <a class="btn primary" href="https://github.com/allanlealluz">See my GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/allan-leal-programmer/">LinkedIn</a>
         <a class="btn" href="#projects">View projects</a>
       </div>
     </div>
@@ -128,6 +132,10 @@ footer.page{padding:40px 0 64px;color:var(--muted);font-size:.9rem;border-top:1p
         <div><h3>Multiplatform Software Development</h3><p>Fatec</p></div>
       </div>
       <div class="edu-item">
+        <div class="when">Program</div>
+        <div><h3>Innovation Campus</h3><p>Samsung</p></div>
+      </div>
+      <div class="edu-item">
         <div class="when">Courses</div>
         <div><h3>Programming Logic</h3><p>Senai</p></div>
       </div>
@@ -155,15 +163,19 @@ footer.page{padding:40px 0 64px;color:var(--muted);font-size:.9rem;border-top:1p
       </div>
       <div class="skill-row">
         <h3>Also familiar with</h3>
-        <div class="chips"><span class="chip">PHP</span><span class="chip">Other languages</span></div>
+        <div class="chips"><span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">PHP</span><span class="chip">Other languages</span></div>
       </div>
       <div class="skill-row">
         <h3>Web</h3>
         <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Bootstrap</span><span class="chip">Firebase</span></div>
       </div>
       <div class="skill-row">
+        <h3>APIs & IoT</h3>
+        <div class="chips"><span class="chip">REST</span><span class="chip">JWT</span><span class="chip">MQTT</span><span class="chip">Swagger</span></div>
+      </div>
+      <div class="skill-row">
         <h3>Databases</h3>
-        <div class="chips"><span class="chip">MySQL</span><span class="chip">Redis</span></div>
+        <div class="chips"><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span></div>
       </div>
       <div class="skill-row">
         <h3>Learning</h3>
@@ -175,15 +187,35 @@ footer.page{padding:40px 0 64px;color:var(--muted);font-size:.9rem;border-top:1p
   <section id="projects">
     <h2>Projects</h2>
     <div class="projects">
-      <a class="proj" href="https://github.com/allanlealluz/Chat">
-        <h3>Chat</h3>
-        <p>A chat application built with PHP and JavaScript.</p>
-        <div class="chips"><span class="chip">PHP</span><span class="chip">JavaScript</span></div>
+      <a class="proj wide" href="https://github.com/allanlealluz/aaci-monsai-backend">
+        <span class="tag">Team project · IoT</span>
+        <h3>Monsai</h3>
+        <p>Backend API for smart IoT monitoring. Devices send telemetry over MQTT, the API processes it in real time, stores it in PostgreSQL and shows it in the system. It has stateless JWT authentication, Swagger docs and a modular layered architecture, and it connects to a web frontend, a mobile app and the IoT devices. Built with a four-person team.</p>
+        <div class="chips"><span class="chip">Java 21</span><span class="chip">Spring Boot</span><span class="chip">PostgreSQL</span><span class="chip">MQTT</span><span class="chip">JWT</span><span class="chip">Swagger</span></div>
       </a>
-      <a class="proj" href="https://github.com/allanlealluz/Shadow_OF_Condor">
-        <h3>Sombra of Condor</h3>
-        <p>A project built with Firebase, PHP, and Ratchet.</p>
-        <div class="chips"><span class="chip">Firebase</span><span class="chip">PHP</span><span class="chip">Ratchet</span></div>
+      <a class="proj" href="https://github.com/allanlealluz/Beman">
+        <span class="tag">Web app</span>
+        <h3>Beman</h3>
+        <p>Pulls quotes from several APIs: quote of the day, philosophy (Nietzsche and the Stoics) and the Bible. You can also search by theme.</p>
+        <div class="chips"><span class="chip">JavaScript</span><span class="chip">REST APIs</span><span class="chip">HTML/CSS</span></div>
+      </a>
+      <a class="proj" href="https://github.com/allanlealluz/C2W-SAMSUNG_Project">
+        <span class="tag">Samsung Innovation Campus</span>
+        <h3>C2W – Class to World</h3>
+        <p>An online learning platform that uses artificial intelligence to personalize the education experience, built on Flask.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Flask</span><span class="chip">AI</span></div>
+      </a>
+      <a class="proj" href="https://github.com/allanlealluz/LeveLog-Projeto-Senai">
+        <span class="tag">Senai project</span>
+        <h3>LeveLog</h3>
+        <p>A web platform to explore games, with trailers, screenshots, reviews and technical details for each title.</p>
+        <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
+      </a>
+      <a class="proj" href="https://github.com/allanlealluz/Sistema-bancario-Springboot">
+        <span class="tag">Backend</span>
+        <h3>Banking system</h3>
+        <p>A banking system built with Java and Spring Boot.</p>
+        <div class="chips"><span class="chip">Java</span><span class="chip">Spring Boot</span></div>
       </a>
     </div>
   </section>
